@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capybara Store | เติมเงินอัตโนมัติ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tesseract.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" id="siteLogo">Capybara <span class="dot">STORE</span></a>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-secondary">กลับหน้าหลัก</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container auth-container" style="align-items: flex-start; padding-top: 50px;">
+        <div class="auth-box" style="max-width: 600px; border-radius: var(--border-radius);">
+            <h2>เติมเงินเข้าระบบ</h2>
+            <p id="topup-desc" style="margin-bottom: 20px; color: #666;">เลือกวิธีการเติมเงินที่ท่านสะดวก</p>
+
+            <!-- Selection View -->
+            <div id="selection-view" class="topup-selection">
+                <div class="selection-card" onclick="showTopupMethod('qr')">
+                    <div class="selection-icon" style="background: linear-gradient(135deg, #4FC3F7 0%, #03A9F4 100%);">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="selection-info">
+                        <h3>พร้อมเพย์ (PromptPay)</h3>
+                        <p>สแกน QR Code และอัปโหลดสลิป</p>
+                    </div>
+                    <div class="selection-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+
+                <div class="selection-card" onclick="showTopupMethod('gift')">
+                    <div class="selection-icon" style="background: linear-gradient(135deg, #00BCD4 0%, #00838F 100%);">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="selection-info">
+                        <h3>ซองของขวัญ (TrueWallet)</h3>
+                        <p>วางลิงก์ซองอั่งเปา เติมทันที</p>
+                    </div>
+                    <div class="selection-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QR Section -->
+            <div id="qr-view" class="method-view">
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <button class="btn-back-selection" onclick="backToSelection()">
+                        <i class="fas fa-arrow-left"></i> ย้อนกลับ
+                    </button>
+                </div>
+
+                <div class="qr-section">
+                    <img src="https://promptpay.io/0800000000.png" alt="PromptPay QR"
+                        style="width: 200px; border: 1px solid #ddd; padding: 10px; border-radius: 10px;">
+                    <p style="margin-top: 10px; font-weight: bold;">เบอร์: 08x-xxx-xxxx (Capybara Store)</p>
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+                <form id="topupForm">
+                    <div class="form-group">
+                        <label>อัปโหลดสลิปโอนเงิน</label>
+                        <input type="file" id="slip-image" accept="image/*" required>
+                        <div id="preview-container" style="margin-top: 10px;"></div>
+                    </div>
+                    <button type="submit" id="topupBtn" class="btn btn-primary btn-full">ตรวจสอบสลิป</button>
+                </form>
+            </div>
+
+            <!-- Gift Section -->
+            <div id="gift-view" class="method-view">
+                <div style="text-align: left; margin-bottom: 20px;">
+                    <button class="btn-back-selection" onclick="backToSelection()">
+                        <i class="fas fa-arrow-left"></i> ย้อนกลับ
+                    </button>
+                </div>
+
+                <div class="info-alert"
+                    style="background: #E1F5FE; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: left; font-size: 0.9rem; color: #01579B; border-left: 5px solid #03A9F4;">
+                    <i class="fas fa-info-circle"></i> วิธีใช้งาน: สร้างซองของขวัญในแอป TrueWallet แบบ
+                    "แบ่งจำนวนเงินเท่ากัน" และใส่ลิงก์ด้านล่างนี้
+                </div>
+                <form id="giftTopupForm">
+                    <div class="form-group">
+                        <label>ลิงก์ซองของขวัญ</label>
+                        <input type="url" id="gift-link" placeholder="https://gift.truemoney.com/campaign/?v=..."
+                            required>
+                    </div>
+                    <button type="submit" id="giftTopupBtn" class="btn btn-primary btn-full"
+                        style="background: #ff5722; border:none;">ยืนยันการเติมเงิน</button>
+                </form>
+            </div>
+
+            <div id="status-message" style="margin: 20px 0 0; font-weight: 500;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capybara Store | ประวัติการสั่งซื้อ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo" id="siteLogo">Capybara <span class="dot">STORE</span></a>
+                <div class="nav-actions">
+                    <a href="index.html" class="btn btn-secondary">กลับหน้าหลัก</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- History Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-history"></i> ประวัติการสั่งซื้อ</h1>
+            <p>ตรวจสอบรายการสินค้าที่คุณเคยสั่งซื้อทั้งหมด</p>
+        </div>
+    </header>
+
+    <!-- History Content -->
+    <main class="container page-content">
+        <div class="history-card">
+            <div class="table-responsive">
+                <table class="history-table" id="purchaseHistoryTable">
+                    <thead>
+                        <tr>
+                            <th>ข้อมูลสินค้า / ไอดี</th>
+                            <th>สินค้า</th>
+                            <th>ราคา</th>
+                            <th>วันที่สั่งซื้อ</th>
+                            <th>สถานะ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="purchaseHistoryBody">
+                        <!-- History items will be loaded here -->
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 40px; color: #999;">
+                                <i class="fas fa-spinner fa-spin"
+                                    style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                                กำลังโหลดข้อมูล...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="noHistoryMessage" style="display: none; text-align: center; padding: 60px 20px;">
+                <i class="fas fa-shopping-bag"
+                    style="font-size: 4rem; color: var(--accent-color); margin-bottom: 20px; display: block;"></i>
+                <h3 style="color: var(--text-dark);">ยังไม่มีประวัติการสั่งซื้อ</h3>
+                <p style="color: var(--text-light); margin-bottom: 25px;">เริ่มช้อปปิ้งตอนนี้เพื่อรับข้อเสนอสุดพิเศษ!
+                </p>
+                <a href="index.html#products" class="btn btn-primary">ไปหน้าเลือกสินค้า</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="OVSM.png" alt="OVSM Logo" style="height: 40px; margin-bottom: 15px; display: block;">
+                        <h3>OVSM CLOUD | Model Capybara</h3>
+                    </div>
+                    <ul class="footer-info-list" style="list-style: none; padding: 0; margin-top: 15px;">
+                        <li id="footerFeature1"
+                            style="margin-bottom: 8px; font-size: 0.9rem; color: var(--text-light);"><i
+                                class="fas fa-check-circle"
+                                style="color: var(--secondary-color); margin-right: 8px;"></i> WebSite OVSM ราคา
+                            เริ่มต้น 79 บาท</li>
+                        <li id="footerFeature2"
+                            style="margin-bottom: 8px; font-size: 0.9rem; color: var(--text-light);"><i
+                                class="fas fa-check-circle"
+                                style="color: var(--secondary-color); margin-right: 8px;"></i> เว็บไซต์ ขายแอพพรีเมี่ยม
+                            / ID เกม ต้อง OVSM</li>
+                        <li id="footerFeature3"
+                            style="margin-bottom: 8px; font-size: 0.9rem; color: var(--text-light);"><i
+                                class="fas fa-check-circle"
+                                style="color: var(--secondary-color); margin-right: 8px;"></i> ราคาถูก อัพเดทตลอด
+                            เว็บไซต์ออนไลน์ตลอด 24/7</li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h3 class="footer-title">เมนูหลัก</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a></li>
+                        <li><a href="index.html#products"><i class="fas fa-shopping-cart"></i> สินค้าทั่วไป</a></li>
+                        <li><a href="topup.html"><i class="fas fa-wallet"></i> เิมเงิน</a></li>
+                        <li><a href="https://discord.gg/kaBqgCWsVc" target="_blank"><i class="fas fa-headset"></i>
+                                ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h3 class="footer-title">ประวัติต่างๆ</h3>
+                    <ul class="footer-links">
+                        <li><a href="history.html"><i class="fas fa-shopping-bag"></i> ประวัติการซื้อสินค้า</a></li>
+                        <li><a href="#"><i class="fas fa-gamepad"></i> ประวัติการเล่นมินิเกม</a></li>
+                        <li><a href="#"><i class="fas fa-envelope-open-text"></i> ประวัติการเติมซองอั่งเปา</a></li>
+                        <li><a href="#"><i class="fas fa-university"></i> ประวัติการเติมเงินธนาคาร</a></li>
+                        <li><a href="#"><i class="fas fa-barcode"></i> ประวัติการเติมโค้ด</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h3 class="footer-title">ติดตามเรา</h3>
+                    <div class="fb-widget-card">
+                        <div class="fb-header">
+                            <div class="fb-logo-circle"
+                                style="width: 40px; height: 40px; background: #eef1f6; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                <img src="OVSM.png" alt="Logo" style="width: 25px;">
+                            </div>
+                            <div class="fb-title">
+                                <a href="https://facebook.com/over.systems" target="_blank" id="fbPageName"
+                                    style="font-weight: bold; color: #385898; text-decoration: none; font-size: 0.9rem;">Over
+                                    System - O...</a>
+                                <div id="fbFollowers" style="font-size: 0.75rem; color: #616770;">ผู้ติดตาม 1,057 คน
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fb-actions">
+                            <button class="fb-btn" id="fbPageBtn"><i class="fab fa-facebook-square"></i>
+                                ติดตามเพจ</button>
+                            <button class="fb-btn"><i class="fas fa-share"></i> แชร์</button>
+                        </div>
+                        <div style="margin-top: 10px; border-radius: 4px; overflow: hidden; height: 120px;">
+                            <img src="https://images.unsplash.com/photo-1615092290766-e261629765b3?q=80\u0026w=1000"
+                                alt="Promotion"
+                                style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8);">
+                            <div id="fbBannerText"
+                                style="position: absolute; bottom: 10px; left: 10px; color: white; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                                โปรโมชั่นเทศกาลตรุษจีน</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; <span id="footerCopyright">2025 OVSM CLOUD | Model Capybara</span>. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#"><i class="fas fa-cog"></i> <span id="footerSiteRef">OVSM - Over System</span></a>
+                        <span class="sep">|</span>
+                        <a href="#" id="contactLink1">ติดต่อเจ้าของร้านไมได้</a>
+                        <span class="sep">|</span>
+                        <a href="#" id="contactLink2">แจ้งปัญหาร้านค้าโกง</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check auth again
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Load History
+            loadPurchaseHistory();
+        });
+
+        function loadPurchaseHistory() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const purchases = JSON.parse(localStorage.getItem('purchases')) || [];
+            const historyBody = document.getElementById('purchaseHistoryBody');
+            const noHistoryMessage = document.getElementById('noHistoryMessage');
+            const table = document.getElementById('purchaseHistoryTable');
+
+            // Filter for current user
+            const userHistory = purchases.filter(p => p.username === currentUser.username);
+
+            if (userHistory.length === 0) {
+                table.style.display = 'none';
+                noHistoryMessage.style.display = 'block';
+                return;
+            }
+
+            // Sort by date descending
+            userHistory.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            let html = '';
+            userHistory.forEach(order => {
+                const date = new Date(order.date).toLocaleString('th-TH', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                html += `
+                    <tr>
+                        <td>
+                            <div class="product-info-box" style="background: var(--accent-color); padding: 8px 12px; border-radius: 10px; border: 1px dashed var(--secondary-color); font-family: monospace; font-weight: 500; font-size: 0.85rem; color: var(--secondary-color);">
+                                <i class="fas fa-key"></i> ${order.productInfo || 'ไม่มีข้อมูล'}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="product-cell">
+                                <i class="fas fa-box"></i>
+                                <span>${order.productName || 'สินค้า'}</span>
+                            </div>
+                        </td>
+                        <td><span class="price">฿${(order.amount || 0).toFixed(2)}</span></td>
+                        <td style="color: #666; font-size: 0.9rem;">${date}</td>
+                        <td><span class="status-success">สำเร็จ</span></td>
+                    </tr>
+                `;
+            });
+
+            historyBody.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>
